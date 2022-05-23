@@ -52,15 +52,15 @@ const App = () => {
           if(strArr[0] === '1'){
             resultStr += pharisifyHelper[strArr.join('')]
             strArr.shift();
-          }else if (strArr[0] === '2' && strArr[1] === '0'){
+          }else if (strArr[1] === '0'){
             resultStr += pharisifyHelper[strArr.join('')]
             strArr.shift();
           } else {
             resultStr += pharisifyHelper[parseInt(strArr[0]) * 10]
           }
           break;
-        case 3:
-          resultStr += 'add3'
+          case 3:
+          resultStr += `${pharisifyHelper[parseInt(strArr[0])]} hundred and `
           break;
         default:
           resultStr += 'random '
