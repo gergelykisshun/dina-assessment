@@ -62,10 +62,10 @@ const App = () => {
         case 3:
           resultStr += `${pharisifyHelper[parseInt(strArr[0])]} hundred and `;
           break;
-          case 4:
-            resultStr += `${pharisifyHelper[parseInt(strArr[0])]} thousand `;
-            break;
-            case 5:
+        case 4:
+          resultStr += `${pharisifyHelper[parseInt(strArr[0])]} thousand `;
+          break;
+        case 5:
           if(strArr[0] === '1'){
             resultStr += `${pharisifyHelper[`${strArr[0]}${strArr[1]}`]} thousand `;
             strArr.shift();
@@ -81,11 +81,26 @@ const App = () => {
             resultStr += `${pharisifyHelper[parseInt(strArr[0])]} hundred thousand `;
             strArr.shift();
             strArr.shift();
+          } else {
+            resultStr += `${pharisifyHelper[parseInt(strArr[0])]} hundred `;
           }
-          resultStr += `${pharisifyHelper[parseInt(strArr[0])]} hundred `;
           break;
         case 7:
-          resultStr += `${pharisifyHelper[parseInt(strArr[0])]} million `;
+          resultStr += `${pharisifyHelper[strArr[0]]} million `
+          break;
+        case 8:
+          if(strArr[0] === '1'){
+            resultStr += `${pharisifyHelper[`${strArr[0]}${strArr[1]}`]} million `;
+            strArr.shift();
+          }else if (strArr[1] === '0'){
+            resultStr += `${pharisifyHelper[`${strArr[0]}${strArr[1]}`]} million `;
+            strArr.shift();
+          } else {
+            resultStr += `${pharisifyHelper[`${strArr[0]}${strArr[1]}`]} million `;
+          };
+          break;
+        case 9:
+          resultStr += `${pharisifyHelper[parseInt(strArr[0])]} hundred `;
           break;
         default:
           resultStr += 'random '
