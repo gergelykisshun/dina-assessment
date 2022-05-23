@@ -1,15 +1,46 @@
+
+
+
+:root{
+  --text-inactive: #AAABB0;
+  --text-active: #FAFAFC;
+  --bg2: #25232E;
+  --primary-color: #FFAC5F;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: none;
+  box-sizing: border-box;
+  background: transparent;
+  font-family: inherit;
+}
+
 .wrapper {
   display: flex;
   align-items: center;
   justify-content: center;
   height: 100vh;
   width: 100%;
+  background-color: var(--bg2);
 }
 
 .content {
   display: flex;
   flex-direction: column;
+  gap: 20px;
   align-items: center;
-  width: 500px;
+  width: 600px;
   height: 500px;
+  color: var(--primary-color);
+}
+
+.input-style {
+  height: 30px;
+  padding-inline: 15px;
+  border-bottom: 1px solid var(--text-inactive);
+  color: var(--text-active);
+  font-size: 16px;
 }
