@@ -62,24 +62,35 @@ const App = () => {
         case 3:
           resultStr += `${pharisifyHelper[parseInt(strArr[0])]} hundred and `;
           break;
-        case 4:
-          resultStr += `${pharisifyHelper[parseInt(strArr[0])]} thousand `;
-          break;
-        case 5:
-            if(strArr[0] === '1'){
-              resultStr += `${pharisifyHelper[`${strArr[0]}${strArr[1]}`]} thousand `;
-              strArr.shift();
-            }else if (strArr[1] === '0'){
-              resultStr += `${pharisifyHelper[`${strArr[0]}${strArr[1]}`]} thousand `
-              strArr.shift();
-            } else {
-              resultStr += `${pharisifyHelper[parseInt(strArr[0]) * 10]} thousand `
-            };
+          case 4:
+            resultStr += `${pharisifyHelper[parseInt(strArr[0])]} thousand `;
             break;
+            case 5:
+          if(strArr[0] === '1'){
+            resultStr += `${pharisifyHelper[`${strArr[0]}${strArr[1]}`]} thousand `;
+            strArr.shift();
+          }else if (strArr[1] === '0'){
+            resultStr += `${pharisifyHelper[`${strArr[0]}${strArr[1]}`]} thousand `
+            strArr.shift();
+          } else {
+            resultStr += `${pharisifyHelper[parseInt(strArr[0]) * 10]} thousand `
+          };
+          break;
+        case 6:
+          if(strArr[1] === '0' && strArr[2] === '0'){
+            resultStr += `${pharisifyHelper[parseInt(strArr[0])]} hundred thousand `;
+            strArr.shift();
+            strArr.shift();
+          }
+          resultStr += `${pharisifyHelper[parseInt(strArr[0])]} hundred `;
+          break;
+        case 7:
+          resultStr += `${pharisifyHelper[parseInt(strArr[0])]} million `;
+          break;
         default:
           resultStr += 'random '
       }
-      // neccesary last step so while doesn't go infinite
+      // necessary last step so while doesn't go infinite
       strArr.shift();
     }
     // returns the phrasified version of the number
