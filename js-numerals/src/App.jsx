@@ -41,7 +41,35 @@ const App = () => {
 
 
   const phrasify = (num) => {
-    
+    let strArr = num.toString().split('');
+    let resultStr = '';
+    while (strArr.length > 0){
+      switch(strArr.length){
+        case 1:
+          resultStr += pharisifyHelper[strArr[0]]
+          break;
+        case 2:
+          if(strArr[0] === '1'){
+            resultStr += pharisifyHelper[strArr.join('')]
+            strArr.shift();
+          }else if (strArr[0] === '2' && strArr[1] === '0'){
+            resultStr += pharisifyHelper[strArr.join('')]
+            strArr.shift();
+          } else {
+            resultStr += pharisifyHelper[parseInt(strArr[0]) * 10]
+          }
+          break;
+        case 3:
+          resultStr += 'add3'
+          break;
+        default:
+          resultStr += 'random '
+      }
+      // neccesary last step so while doesn't go infinite
+      strArr.shift();
+    }
+    // returns the phrasified version of the number
+    return resultStr;
   };
   return (
     <section className='wrapper'>
