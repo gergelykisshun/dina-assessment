@@ -56,7 +56,7 @@ const App = () => {
             resultStr += pharisifyHelper[strArr.join('')]
             strArr.shift();
           } else {
-            resultStr += pharisifyHelper[parseInt(strArr[0]) * 10]
+            resultStr += `${pharisifyHelper[parseInt(strArr[0]) * 10]}-`
           };
           break;
         case 3:
@@ -99,11 +99,7 @@ const App = () => {
             resultStr += `${pharisifyHelper[`${strArr[0]}${strArr[1]}`]} million `;
           };
           break;
-        case 9:
-          resultStr += `${pharisifyHelper[parseInt(strArr[0])]} hundred `;
-          break;
         default:
-          resultStr += 'random '
       }
       // necessary last step so while doesn't go infinite
       strArr.shift();
