@@ -17,7 +17,8 @@ const App = () => {
   return (
     <section className='wrapper'>
       <div className='content'>
-        <input className='input-style' type="text" onChange={inputHandler} value={num}/>
+        <h1>Dina Assessment #1</h1>
+        <input className='input-style' type="text" onChange={inputHandler} value={num} placeholder="Insert a number"/>
         <h2>{phrasify(num)}</h2>
       </div> 
     </section>
