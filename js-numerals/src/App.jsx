@@ -57,11 +57,25 @@ const App = () => {
             strArr.shift();
           } else {
             resultStr += pharisifyHelper[parseInt(strArr[0]) * 10]
-          }
+          };
           break;
-          case 3:
-          resultStr += `${pharisifyHelper[parseInt(strArr[0])]} hundred and `
+        case 3:
+          resultStr += `${pharisifyHelper[parseInt(strArr[0])]} hundred and `;
           break;
+        case 4:
+          resultStr += `${pharisifyHelper[parseInt(strArr[0])]} thousand `;
+          break;
+        case 5:
+            if(strArr[0] === '1'){
+              resultStr += `${pharisifyHelper[`${strArr[0]}${strArr[1]}`]} thousand `;
+              strArr.shift();
+            }else if (strArr[1] === '0'){
+              resultStr += `${pharisifyHelper[`${strArr[0]}${strArr[1]}`]} thousand `
+              strArr.shift();
+            } else {
+              resultStr += `${pharisifyHelper[parseInt(strArr[0]) * 10]} thousand `
+            };
+            break;
         default:
           resultStr += 'random '
       }
