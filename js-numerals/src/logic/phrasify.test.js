@@ -1,4 +1,5 @@
-const { test, expect } = require('@jest/globals');
+import {test, expect} from '@jest/globals';
+import phrasify from './phrasify';
 
 test('pharisify for 7', () => {
     expect(phrasify('7')).toBe('seven');
