@@ -1,4 +1,5 @@
-const pharisifyHelper = {
+const phrasifyHelper = {
+  "0": "",
   "1": "one",
   "2": "two",
   "3": "three",
@@ -37,57 +38,64 @@ const phrasify = (num) => {
   while (strArr.length > 0){
     switch(strArr.length){
       case 1:
-        resultStr += pharisifyHelper[strArr[0]]
+        resultStr += phrasifyHelper[strArr[0]]
         break;
       case 2:
         if(strArr[0] === '1'){
-          resultStr += pharisifyHelper[strArr.join('')]
+          resultStr += phrasifyHelper[strArr.join('')]
           strArr.shift();
         }else if (strArr[1] === '0'){
-          resultStr += pharisifyHelper[strArr.join('')]
+          resultStr += phrasifyHelper[strArr.join('')]
+          strArr.shift();
+        } else if (strArr[0] === '0'){
+          resultStr += `and ${phrasifyHelper[parseInt(strArr[1])]}`;
           strArr.shift();
         } else {
-          resultStr += `${pharisifyHelper[parseInt(strArr[0]) * 10]}-`
+          resultStr += `${phrasifyHelper[parseInt(strArr[0]) * 10]}-`
         };
         break;
       case 3:
-        resultStr += `${pharisifyHelper[parseInt(strArr[0])]} hundred and `;
+        if(strArr[0] === "0"){
+          console.log('hey')
+        } else {
+          resultStr += `${phrasifyHelper[parseInt(strArr[0])]} hundred and `;
+        }
         break;
       case 4:
-        resultStr += `${pharisifyHelper[parseInt(strArr[0])]} thousand `;
+        resultStr += `${phrasifyHelper[parseInt(strArr[0])]} thousand `;
         break;
       case 5:
         if(strArr[0] === '1'){
-          resultStr += `${pharisifyHelper[`${strArr[0]}${strArr[1]}`]} thousand `;
+          resultStr += `${phrasifyHelper[`${strArr[0]}${strArr[1]}`]} thousand `;
           strArr.shift();
         }else if (strArr[1] === '0'){
-          resultStr += `${pharisifyHelper[`${strArr[0]}${strArr[1]}`]} thousand `
+          resultStr += `${phrasifyHelper[`${strArr[0]}${strArr[1]}`]} thousand `
           strArr.shift();
         } else {
-          resultStr += `${pharisifyHelper[parseInt(strArr[0]) * 10]} thousand `
+          resultStr += `${phrasifyHelper[parseInt(strArr[0]) * 10]} thousand `
         };
         break;
       case 6:
         if(strArr[1] === '0' && strArr[2] === '0'){
-          resultStr += `${pharisifyHelper[parseInt(strArr[0])]} hundred thousand `;
+          resultStr += `${phrasifyHelper[parseInt(strArr[0])]} hundred thousand `;
           strArr.shift();
           strArr.shift();
         } else {
-          resultStr += `${pharisifyHelper[parseInt(strArr[0])]} hundred `;
+          resultStr += `${phrasifyHelper[parseInt(strArr[0])]} hundred `;
         }
         break;
       case 7:
-        resultStr += `${pharisifyHelper[strArr[0]]} million `
+        resultStr += `${phrasifyHelper[strArr[0]]} million `
         break;
       case 8:
         if(strArr[0] === '1'){
-          resultStr += `${pharisifyHelper[`${strArr[0]}${strArr[1]}`]} million `;
+          resultStr += `${phrasifyHelper[`${strArr[0]}${strArr[1]}`]} million `;
           strArr.shift();
         }else if (strArr[1] === '0'){
-          resultStr += `${pharisifyHelper[`${strArr[0]}${strArr[1]}`]} million `;
+          resultStr += `${phrasifyHelper[`${strArr[0]}${strArr[1]}`]} million `;
           strArr.shift();
         } else {
-          resultStr += `${pharisifyHelper[`${strArr[0]}${strArr[1]}`]} million `;
+          resultStr += `${phrasifyHelper[`${strArr[0]}${strArr[1]}`]} million `;
         };
         break;
       default:
